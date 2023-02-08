@@ -2,9 +2,9 @@
 #include <string>
 #include <thread>
 
-extern "C" {
-	#include <gst/gst.h>
-}
+
+#include <gst/gst.h>
+
 
 class FGstPipelineImpl : public IGstPipeline
 {

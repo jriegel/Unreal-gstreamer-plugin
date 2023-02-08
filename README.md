@@ -1,4 +1,4 @@
-# UE4 GStreamer plugin
+# UE5 GStreamer plugin
 
 [![Demo video](img/demo1.jpg)](https://www.youtube.com/watch?v=eCLCdaSIxBA)
 
@@ -8,11 +8,7 @@ Tested with UE4 4.26 and GStreamer 1.18.4
 
 Download and install [GStreamer runtime and development packages](https://gstreamer.freedesktop.org/download/)
 
-Edit `Plugins\GStreamer\Source\GStreamer\GStreamer.Build.cs`
-
-Modify `const string GStreamerRoot = @"C:\gstreamer_development\1.0\msvc_x86_64"` to path where development package installed
-
-Set environment variable `GSTREAMER_ROOT=C:\gstreamer_runtime\1.0\msvc_x86_64` to path where runtime package installed
+After Gstreamer install the GSTREAMER_1_0_ROOT_MSVC_X86_64 have to be set. On every computer the plugin need to run, gstreamer has to be installed!
 
 Launch project and hit play
 

@@ -1,5 +1,6 @@
 using UnrealBuildTool;
 using System.IO;
+using System;
 
 public class GStreamer : ModuleRules
 {
@@ -25,7 +26,9 @@ public class GStreamer : ModuleRules
 
         if (Target.Platform == UnrealTargetPlatform.Win64)
         {
-            const string GStreamerRoot = @"C:\dev\gstreamer_dev\1.0\msvc_x86_64"; // path to gstreamer development package
+
+            //const string GStreamerRoot = @"C:\dev\gstreamer_dev\1.0\msvc_x86_64"; // path to gstreamer development package
+            string GStreamerRoot = Environment.GetEnvironmentVariable("GSTREAMER_1_0_ROOT_MSVC_X86_64");  // path to gstreamer development package
 
             PrivateIncludePaths.Add(Path.Combine(GStreamerRoot, "include"));
             PrivateIncludePaths.Add(Path.Combine(GStreamerRoot, "include", "gstreamer-1.0"));

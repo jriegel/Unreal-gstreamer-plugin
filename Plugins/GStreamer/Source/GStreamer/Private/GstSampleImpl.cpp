@@ -1,10 +1,10 @@
 #include "GstSampleImpl.h"
 #include <memory.h>
 
-extern "C" {
-	#include <gst/gst.h>
-	#include <gst/video/video-format.h>
-}
+
+#include <gst/gst.h>
+#include <gst/video/video-format.h>
+
 
 class FGstSampleImpl : public IGstSample
 {

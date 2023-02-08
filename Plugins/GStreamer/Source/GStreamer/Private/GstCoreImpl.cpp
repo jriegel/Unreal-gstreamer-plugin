@@ -1,9 +1,9 @@
 #include "GstCoreImpl.h"
 
-extern "C" {
-	#include <gst/gst.h>
-	#include <gst/gstregistry.h>
-}
+
+#include <gst/gst.h>
+#include <gst/gstregistry.h>
+
 
 bool FGstCoreImpl::Init(const char* BinPath, const char* PluginPath)
 {

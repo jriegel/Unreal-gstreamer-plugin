@@ -2,10 +2,10 @@
 #include "GstPipelineImpl.h"
 #include "GstSampleImpl.h"
 
-extern "C" {
-	#include <gst/gst.h>
-	#include <gst/app/gstappsrc.h>
-}
+
+#include <gst/gst.h>
+#include <gst/app/gstappsrc.h>
+
 
 #include <string>
 
