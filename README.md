@@ -4,7 +4,7 @@
 
 ## Getting Started
 
-Tested with UE4 4.26 and GStreamer 1.18.4
+Tested with UE4 5.1 and GStreamer 1.22
 
 Download and install [GStreamer runtime and development packages](https://gstreamer.freedesktop.org/download/)
 

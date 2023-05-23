@@ -14,10 +14,34 @@ IF "%UE_51_DIR%"=="" (
     exit 1
 )
 
+
+echo  [94mSearch for NSIS:[0m
+WHERE makensis
+IF %ERRORLEVEL% NEQ 0 (
+    ECHO [91mERROR: makensis.exe whas not found in path! Download and install NSIS first! [0m
+    ECHO See: https://nsis.sourceforge.io/Download on details for you system.
+    pause
+    exit 1
+)
+
+
 SET CURRENTDIR="%cd%"
 
 
 call "%UE_51_DIR%/Engine/Build/BatchFiles/RunUAT.bat" BuildPlugin ^
                 -plugin=%CURRENTDIR%\Plugins\GStreamer\GStreamer.uplugin ^
-                -Package=%CURRENTDIR%\GStreamer_5.1 ^
+                -Package=%CURRENTDIR%\GStreamer_UE51 ^
 				-TargetPlatforms=Win64
+IF %ERRORLEVEL% NEQ 0 (
+    ECHO [91mERROR: Building Plugin failed! [0m
+    pause
+    exit 1
+)
+
+makensis.exe -V4 PluginInstaller.nsi
+IF %ERRORLEVEL% NEQ 0 (
+    ECHO [91mERROR: Building Installer failed! [0m
+    pause
+    exit 1
+)
+

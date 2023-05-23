@@ -4,6 +4,9 @@ Debug/
 Intermediate/
 Saved/
 
+GStreamer_UE51/
+GStreamerPluginInstaller_UE5.1.exe
+
 Content/Collections/
 Content/Developers/
 
@@ -13,6 +16,7 @@ Plugins/GStreamer/Binaries/
 Plugins/GStreamer/Intermediate/
 
 .vs/
+.vsconfig
 
 *.sln
 *.suo
