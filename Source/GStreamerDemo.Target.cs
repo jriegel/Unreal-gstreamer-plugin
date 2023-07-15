@@ -10,6 +10,7 @@ public class GStreamerDemoTarget : TargetRules
 
 		bUseUnityBuild = false;
 		bUsePCHFiles = false;
+		IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_1;
 
 		ExtraModuleNames.AddRange( new string[] { "GStreamerDemo" } );
 	}

@@ -10,6 +10,7 @@ public class GStreamer : ModuleRules
         PCHUsage = PCHUsageMode.NoPCHs; // UseExplicitOrSharedPCHs;
         bUseUnity = false;
         bEnableUndefinedIdentifierWarnings = false;
+        IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_1;
 
         PublicDependencyModuleNames.AddRange(
             new string[] {
