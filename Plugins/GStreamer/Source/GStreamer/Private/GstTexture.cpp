@@ -2,6 +2,7 @@
 #include "RenderUtils.h"
 #include "TextureResource.h"
 #include "Async/Async.h"
+#include "RenderingThread.h"
 
 #include "GstAppSinkImpl.h"
 #include "GstSampleImpl.h"
@@ -100,17 +101,21 @@ void FGstTexture::RenderCmd_UpdateTexture(IGstSample* Sample)
 	SCOPED_PROFILER;
 
 	auto Tex = GetTextureObject();
-	if (Tex && Tex->Resource)
+	if (Tex && Tex->GetResource())
 	{
-		RHIUpdateTexture2D(
-			Tex->Resource->GetTexture2DRHI(),
-			0,
-			FUpdateTextureRegion2D(0, 0, 0, 0, Sample->GetWidth(), Sample->GetHeight()),
-			m_Pitch,
-			(const uint8*)Sample->GetData()
-		);
+		auto TextureResouce = Tex->GetResource();
 
-		m_RenderCount++;
+		if (TextureResouce) {
+			RHIUpdateTexture2D(
+				TextureResouce->GetTexture2DRHI(),
+				0,
+				FUpdateTextureRegion2D(0, 0, 0, 0, Sample->GetWidth(), Sample->GetHeight()),
+				m_Pitch,
+				(const uint8*)Sample->GetData()
+			);
+
+			m_RenderCount++;
+		}
 	}
 
 	ReleaseSample(Sample);

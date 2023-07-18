@@ -1,6 +1,8 @@
 #include "GstAppSrcComponent.h"
 #include "GstPipelineImpl.h"
 #include "Engine/TextureRenderTarget2D.h"
+#include "TextureResource.h"
+#include "RenderingThread.h"
 #include "Components/SceneCaptureComponent2D.h"
 
 class FGstAppSrcBuffer : public IGstAppSrcBuffer
