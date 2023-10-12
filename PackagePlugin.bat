@@ -20,14 +20,14 @@ set BuildTime=%year%%month%%day%-%hour%%min%
 
 
 
-FOR /F "tokens=2* skip=2" %%a in ('reg query "HKLM\Software\EpicGames\Unreal Engine\5.2" /v "InstalledDirectory"') do set UE_52_DIR=%%b
+FOR /F "tokens=2* skip=2" %%a in ('reg query "HKLM\Software\EpicGames\Unreal Engine\5.3" /v "InstalledDirectory"') do set UE_53_DIR=%%b
 
-echo  Using:%UE_52_DIR%
+echo  Using:%UE_53_DIR%
 
 
-IF "%UE_52_DIR%"=="" (
-    ECHO [91mERROR: UE_52_DIR environment variable not set!! [0m
-    ECHO Install Unreal 5.2 via EpicGame launcher!
+IF "%UE_53_DIR%"=="" (
+    ECHO [91mERROR: UE_53_DIR environment variable not set!! [0m
+    ECHO Install Unreal 5.3 via EpicGame launcher!
     pause
     exit 1
 )
@@ -46,9 +46,9 @@ IF %ERRORLEVEL% NEQ 0 (
 SET CURRENTDIR="%cd%"
 
 
-call "%UE_52_DIR%/Engine/Build/BatchFiles/RunUAT.bat" BuildPlugin ^
+call "%UE_53_DIR%/Engine/Build/BatchFiles/RunUAT.bat" BuildPlugin ^
                 -plugin=%CURRENTDIR%\Plugins\GStreamer\GStreamer.uplugin ^
-                -Package=%CURRENTDIR%\GStreamer_UE52 ^
+                -Package=%CURRENTDIR%\GStreamer_UE53 ^
 				-TargetPlatforms=Win64
 IF %ERRORLEVEL% NEQ 0 (
     ECHO [91mERROR: Building Plugin failed! [0m
@@ -64,8 +64,8 @@ IF %ERRORLEVEL% NEQ 0 (
 )
 
 rem Remove build dir and rename with build time
-rmdir /S / Q GStreamer_UE51
+rmdir /S / Q GStreamer_UE53
 timeout 3 > NUL
-ren GStreamerPluginInstaller_UE5.2.exe GStreamerPluginInstaller_UE5.2_%BuildTime%.exe
+ren GStreamerPluginInstaller_UE5.3.exe GStreamerPluginInstaller_UE5.3_%BuildTime%.exe
 
 
